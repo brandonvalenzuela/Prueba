@@ -1,0 +1,34 @@
+﻿@model Cliente
+
+<h2>Actualizar Cliente</h2>
+
+<form asp-action="Actualizar" method="post">
+    <div class="form-group">
+        <label asp-for="Cliente_Id"></label>
+        <input asp-for="Cliente_Id" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="Nombre"></label>
+        <input asp-for="Nombre" class="form-control" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Apellido</label>
+        <input asp-for="Apellido" class="form-control" />
+        <span asp-validation-for="Apellido" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="tipo">Selecciona un tipo:</label>
+        <select asp-for="Tipo" id="tipo" class="form-input">
+            <option value="">Selecciona...</option>
+            <option value="CTE">CTE</option>
+            <option value="Other">Other</option>
+        </select>
+        <span asp-validation-for="Tipo" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Actualizar" class="btn btn-warning" />
+        <a asp-action="Index" class="btn btn-secondary">Volver a listado</a>
+    </div>
+</form>

@@ -1,0 +1,30 @@
+﻿@model Cliente
+
+<h2>Eliminar Cliente</h2>
+
+<form asp-action="Eliminar" method="post">
+    <div class="form-group">
+        <label asp-for="Cliente_Id"></label>
+        <input asp-for="Cliente_Id"  readonly/>
+    </div>
+    <div class="form-group">
+        <label asp-for="Nombre"></label>
+        <input asp-for="Nombre" readonly/>
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Apellido</label>
+        <input asp-for="Apellido" readonly/>
+        <span asp-validation-for="Apellido" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Tipo</label>
+        <input asp-for="Tipo" readonly />
+        <span asp-validation-for="Tipo" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Eliminar" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">Volver a listado</a>
+    </div>
+</form>

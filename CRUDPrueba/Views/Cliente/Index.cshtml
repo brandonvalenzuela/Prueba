@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Cliente>
+
+<div class="container mt-5">
+    <h2>Lista de Clientes (Tipo CTE)</h2>
+
+
+    <form asp-action="Index" method="get">
+        <label for="busqueda">Filtrar por tipo:</label>
+        <div class="form-group d-flex">
+            <input type="text" name="busqueda" class="form-control me-2" placeholder="Tipo (por ejemplo, CTE)" style="max-width: 300px;" />
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </div>
+    </form>
+
+
+
+    @if (Model != null && Model.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Tipo</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var cliente in Model)
+                {
+                    <tr>
+                        <td>@cliente.Nombre</td>
+                        <td>@cliente.Apellido</td>
+                        <td>@cliente.Tipo</td>
+                        <td>
+                            <a class="btn btn-primary" asp-action="Actualizar" asp-route-Cliente_Id="@cliente.Cliente_Id">Editar</a>
+                            <a class="btn btn-danger" asp-action="Eliminar" asp-route-Cliente_Id="@cliente.Cliente_Id">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No hay clientes registrados de tipo CTE</p>
+    }
+
+    <div class="mt-4">
+        <a asp-action="Crear" class="btn btn-primary">Crear Cliente</a>
+    </div>
+</div>
